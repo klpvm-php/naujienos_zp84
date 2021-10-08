@@ -14,8 +14,8 @@ class GuestLayout extends Component
      */
     public function render()
     {
-        // $rubrikos = Rubrika::all();
-        // return view('layouts.guest', compact("rubrikos"));
-        return view('layouts.guest');
+        $rubrikos = Rubrika::all();
+        return view('layouts.guest', compact("rubrikos"));
+        // return view('layouts.guest');
     }
 }

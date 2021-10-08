@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $rubrikos = Rubrika::all();
-        view()->share("rubrikos", $rubrikos);
+        // $rubrikos = Rubrika::all();
+        // view()->share("rubrikos", $rubrikos);
     }
 }
