@@ -15,7 +15,15 @@ class CreateStraipsnisTable extends Migration
     {
         Schema::create('straipsnis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("rid");
+            $table->string("pavadinimas");
+            $table->string("paveiksliukas")->nullable();
+            $table->text("aprasymas")->nullable();
+            $table->text("tekstas");
+            $table->string("nuoroda")->unique();
             $table->timestamps();
+
+            $table->foreign("rid")->references("id")->on("rubrikas");
         });
     }
 
