@@ -9,6 +9,9 @@ class Straipsnis extends Model
 {
     use HasFactory;
 
+    /**
+     * Gauna rubriką, kuriai priklauso straipsnis
+     */
     public function Rubrika()
     {
         return $this->belongsTo(Rubrika::class);

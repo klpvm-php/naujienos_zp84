@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Straipsnis;
+use App\Models\Rubrika;
 use Illuminate\Http\Request;
 
 class StraipsnisController extends Controller
@@ -14,7 +15,10 @@ class StraipsnisController extends Controller
      */
     public function index()
     {
-        //
+        $rubrikos = Rubrika::all();
+        $straipsniai = Straipsnis::with("Rubrika")->get();
+
+        return view("straipsniai.index", compact("rubrikos", "straipsniai"));
     }
 
     /**

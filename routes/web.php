@@ -27,6 +27,6 @@ require __DIR__.'/auth.php';
 
 Route::resource('rubrika', RubrikaController::class);
 
-Route::get('/{rubrika:nuoroda}', [RubrikaController::class, 'straipsniai'])->name("rubrika");
-
 Route::resource('straipsnis', StraipsnisController::class);
+
+Route::get('/{rubrika:nuoroda}', [RubrikaController::class, 'straipsniai'])->name("rubrika");
