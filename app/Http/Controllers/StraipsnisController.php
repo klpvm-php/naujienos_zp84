@@ -16,7 +16,7 @@ class StraipsnisController extends Controller
     public function index()
     {
         $rubrikos = Rubrika::all();
-        $straipsniai = Straipsnis::with("Rubrika")->get();
+        $straipsniai = Straipsnis::with("rubrika")->get();
 
         return view("straipsniai.index", compact("rubrikos", "straipsniai"));
     }

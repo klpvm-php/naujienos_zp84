@@ -14,8 +14,8 @@ class Straipsnis extends Model
     /**
      * Gauna rubriką, kuriai priklauso straipsnis
      */
-    public function Rubrika()
+    public function rubrika()
     {
-        return $this->belongsTo(Rubrika::class);
+        return $this->belongsTo(Rubrika::class, 'rid');
     }
 }
