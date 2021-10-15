@@ -10,4 +10,12 @@ class Rubrika extends Model
     use HasFactory;
 
     protected $fillable = ['pavadinimas', 'aprasymas', 'nuoroda'];
+
+    /**
+     * Gauna visus rubrikos straipsnius
+     */
+    public function straisniai()
+    {
+        return $this->hasMany(Straipsnis::class);
+    }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Straipsnis extends Model
 {
     use HasFactory;
+
+    public function Rubrika()
+    {
+        return $this->belongsTo(Rubrika::class);
+    }
 }
