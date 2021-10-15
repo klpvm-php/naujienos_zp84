@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RubrikaController;
+use App\Http\Controllers\StraipsnisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::resource('rubrika', RubrikaController::class);
 
 Route::get('/{rubrika:nuoroda}', [RubrikaController::class, 'straipsniai'])->name("rubrika");
 
+Route::resource('straipsnis', StraipsnisController::class);
