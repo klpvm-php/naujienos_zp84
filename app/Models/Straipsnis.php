@@ -9,6 +9,8 @@ class Straipsnis extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['pavadinimas', 'aprasymas', 'nuoroda', 'rid', 'paveiksliukas', 'tekstas'];
+
     /**
      * Gauna rubriką, kuriai priklauso straipsnis
      */

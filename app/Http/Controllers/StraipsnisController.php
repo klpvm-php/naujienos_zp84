@@ -28,7 +28,8 @@ class StraipsnisController extends Controller
      */
     public function create()
     {
-        //
+        $rubrikos = Rubrika::all();
+        return view("straipsniai.create", compact("rubrikos"));
     }
 
     /**
@@ -39,7 +40,18 @@ class StraipsnisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'rid' => 'required',
+            'pavadinimas' => 'required',
+            'tekstas' => 'required',
+            'nuoroda' => 'required|unique:straipsnis',
+            'paveiksliukas' => 'nullable',
+            'aprasymas' => 'nullable',
+        ]);
+
+        Straipsnis::create($data);
+
+        return redirect()->route('straipsnis.index')->with('success', 'Pridėtas naujaa stripsnis');
     }
 
     /**
