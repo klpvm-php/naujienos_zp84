@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('rubrika.index')" :active="request()->routeIs('rubrika.index')">
                         {{ __('Rubrikos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('straipsnis.index')" :active="request()->routeIs('straipsnis.index')">
+                        {{ __('Straipsniai') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -71,6 +74,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('rubrika.index')" :active="request()->routeIs('rubrika.index')">
                 {{ __('Rubrikos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('straipsnis.index')" :active="request()->routeIs('straipsnis.index')">
+                {{ __('Straipsniai') }}
             </x-responsive-nav-link>
         </div>
 
