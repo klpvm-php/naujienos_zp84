@@ -14,7 +14,7 @@ class Rubrika extends Model
     /**
      * Gauna visus rubrikos straipsnius
      */
-    public function straisniai()
+    public function straipsniai()
     {
         return $this->hasMany(Straipsnis::class);
     }
