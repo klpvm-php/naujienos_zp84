@@ -45,9 +45,16 @@ class StraipsnisController extends Controller
             'pavadinimas' => 'required',
             'tekstas' => 'required',
             'nuoroda' => 'required|unique:straipsnis',
-            'paveiksliukas' => 'nullable',
+            'paveiksliukas' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'aprasymas' => 'nullable',
         ]);
+
+        if ($failas = $request->file('paveiksliukas')) {
+            $katalogas = 'straipsniai/';
+            $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
+            $failas->move($katalogas, $paveiksliukas);
+            $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+        }
 
         Straipsnis::create($data);
 
@@ -94,6 +101,13 @@ class StraipsnisController extends Controller
             'paveiksliukas' => 'nullable',
             'aprasymas' => 'nullable',
         ]);
+
+        if ($failas = $request->file('paveiksliukas')) {
+            $katalogas = 'straipsniai/';
+            $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
+            $failas->move($katalogas, $paveiksliukas);
+            $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+        }
 
         $straipsnis->update($data);
 

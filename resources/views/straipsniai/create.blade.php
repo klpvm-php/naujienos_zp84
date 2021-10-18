@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <form action="{{ route("straipsnis.store") }}" method="POST" class="w-full space-y-6">
+                        <form action="{{ route("straipsnis.store") }}" method="POST"  enctype="multipart/form-data" class="w-full space-y-6">
                             @csrf
 
                             <div class="lg:flex mb-4 -mx-2 space-y-10 lg:space-y-0">
@@ -49,7 +49,7 @@
                                             Paveiksliukas
                                         </div>
                                         <div class=" relative ">
-                                            <input type="text" name="paveiksliukas" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Paveiksliukas"/>
+                                            <input type="file" name="paveiksliukas" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Paveiksliukas"/>
                                         </div>
                                     </div>
                                     <div class="w-full">

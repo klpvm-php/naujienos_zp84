@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <form action="{{ route("straipsnis.update", $straipsnis->id) }}" method="POST" class="w-full">
+                        <form action="{{ route("straipsnis.update", $straipsnis->id) }}" method="POST" enctype="multipart/form-data" class="w-full">
                             @csrf
                             @method("PUT")
 
@@ -50,7 +50,10 @@
                                             Paveiksliukas
                                         </div>
                                         <div class=" relative ">
-                                            <input type="text" name="paveiksliukas" value="{{ $straipsnis->paveiksliukas }}" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Paveiksliukas"/>
+                                            @if ($straipsnis->paveiksliukas)
+                                                <img src="{{ asset($straipsnis->paveiksliukas) }}" class="max-w-full h-auto mb-3">
+                                            @endif
+                                            <input type="file" name="paveiksliukas" value="{{ $straipsnis->paveiksliukas }}" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Paveiksliukas"/>
                                         </div>
                                     </div>
                                     <div class="w-full">
