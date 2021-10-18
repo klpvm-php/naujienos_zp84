@@ -71,7 +71,7 @@
                                         <form action="{{ route("straipsnis.destroy", $straipsnis->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             @method("DELETE")
-                                            <button onclick="return confirm('Ar tikrai norite ištrinti rubriką?')" class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                            <button onclick="return confirm('Ar tikrai norite ištrinti straipsnį?')" class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                                                 <span aria-hidden="true" class="absolute inset-0 bg-red-200 opacity-50 rounded-full">
                                                 </span>
                                                 <span class="relative">

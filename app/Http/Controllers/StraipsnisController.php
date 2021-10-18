@@ -51,7 +51,7 @@ class StraipsnisController extends Controller
 
         Straipsnis::create($data);
 
-        return redirect()->route('straipsnis.index')->with('success', 'Pridėtas naujaa stripsnis');
+        return redirect()->route('straipsnis.index')->with('success', 'Pridėtas naujas stripsnis');
     }
 
     /**
@@ -68,12 +68,13 @@ class StraipsnisController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Straipsnis  $straipsnis
+     * @param  \App\Models\Straipsnis  $straipsni
      * @return \Illuminate\Http\Response
      */
     public function edit(Straipsnis $straipsnis)
     {
-        //
+        $rubrikos = Rubrika::all();
+        return view("straipsniai.edit", compact("straipsnis", "rubrikos"));
     }
 
     /**
@@ -85,7 +86,19 @@ class StraipsnisController extends Controller
      */
     public function update(Request $request, Straipsnis $straipsnis)
     {
-        //
+        $data = $request->validate([
+            'rid' => 'required',
+            'pavadinimas' => 'required',
+            'tekstas' => 'required',
+            'nuoroda' => 'required|unique:straipsnis,nuoroda,'.$straipsnis->id,
+            'paveiksliukas' => 'nullable',
+            'aprasymas' => 'nullable',
+        ]);
+
+        $straipsnis->update($data);
+
+        return redirect()->route('straipsnis.index')->with('success', 'Pakeista straipsnio informacija.');
+
     }
 
     /**
@@ -96,6 +109,8 @@ class StraipsnisController extends Controller
      */
     public function destroy(Straipsnis $straipsnis)
     {
-        //
+        $straipsnis->delete();
+
+        return redirect()->route('straipsnis.index')->with('success', 'Straipsnis ištrinta.');
     }
 }
