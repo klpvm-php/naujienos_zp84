@@ -24,8 +24,8 @@
                         <form action="{{ route("straipsnis.store") }}" method="POST" class="w-full space-y-6">
                             @csrf
 
-                            <div class="flex mb-4 -mx-2 ">
-                                <div class="w-3/4 px-2 h-screen">
+                            <div class="lg:flex mb-4 -mx-2 space-y-10 lg:space-y-0">
+                                <div class="w-full lg:w-3/4 px-2 h-screen">
                                     <div class="w-full h-full">
                                         <div class=" relative text-gray-600 text-sm">
                                             Tekstas
@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="w-1/4 px-2 space-y-6">
+                                <div class="w-full lg:w-1/4 px-2 space-y-6">
                                     <div class="w-full">
                                         <div class=" relative text-gray-600 text-sm">
                                             Pavadinimas
