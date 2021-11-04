@@ -148,4 +148,18 @@ class StraipsnisController extends Controller
 
         return redirect()->route('straipsnis.index')->with('success', 'Straipsnis ištrinta.');
     }
+
+
+    /**
+     * Išvedami rubrikos straipsniai. Adresui naudojama rubrikos nuoroda.
+     *
+     * @param  \App\Models\Rubrika  $rubrika
+     * @param  \App\Models\Straipsnis  $straipsnis
+     * @return \Illuminate\Http\Response
+     */
+    public function straipsnis(Rubrika $rubrika, $straipsnis)
+    {
+        $straipsnis = Straipsnis::where('nuoroda', $straipsnis)->first();
+        return view("straipsnis", compact('rubrika', 'straipsnis'));
+    }
 }

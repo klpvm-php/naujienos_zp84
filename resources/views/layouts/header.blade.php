@@ -1,4 +1,4 @@
-<nav id="header" class="w-full">
+<nav id="header" class="w-full z-10 top-0">
 
     <div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
 

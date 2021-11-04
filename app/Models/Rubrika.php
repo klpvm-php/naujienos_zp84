@@ -16,6 +16,6 @@ class Rubrika extends Model
      */
     public function straipsniai()
     {
-        return $this->hasMany(Straipsnis::class);
+        return $this->hasMany(Straipsnis::class, 'rid');
     }
 }
