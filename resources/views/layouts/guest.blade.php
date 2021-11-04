@@ -5,7 +5,7 @@
         @include('layouts.header')
 
         <!--Container-->
-	    <div class="container w-full md:max-w-4xl mx-auto pt-20 px-4">
+	    <div class="container w-full md:max-w-4xl mx-auto pt-20">
             {{ $slot }}
         </div>
 
