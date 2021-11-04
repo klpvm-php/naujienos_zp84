@@ -25,13 +25,13 @@
                             @csrf
 
                             <div class="lg:flex mb-4 -mx-2 space-y-10 lg:space-y-0">
-                                <div class="w-full lg:w-3/4 px-2 h-screen">
+                                <div class="w-full lg:w-3/4 px-2 min-h-screen">
                                     <div class="w-full h-full">
                                         <div class=" relative text-gray-600 text-sm">
                                             Tekstas
                                         </div>
                                         <div class=" relative h-full">
-                                            <textarea name="tekstas" required class="h-full rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
+                                            <textarea name="tekstas" class="ckeditor h-full rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -95,4 +95,6 @@
             </div>
         </div>
     </div>
+
+    @include('layouts.ckeditor')
 </x-app-layout>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Straipsnis;
 use App\Models\Rubrika;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StraipsnisController extends Controller
 {
@@ -50,10 +51,19 @@ class StraipsnisController extends Controller
         ]);
 
         if ($failas = $request->file('paveiksliukas')) {
-            $katalogas = 'straipsniai/';
-            $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
-            $failas->move($katalogas, $paveiksliukas);
-            $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+            // $katalogas = 'straipsniai/';
+            // $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
+            // $failas->move($katalogas, $paveiksliukas);
+            // $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+
+            // failų įkelimo perdarymas, kai failai keliami į storage katalogą
+            $data['paveiksliukas'] = Storage::url(
+                $failas->storeAs(
+                    'straipsniai',
+                    date('YmdHis') . "." . $failas->extension(),
+                    'public'
+                )
+            );
         }
 
         Straipsnis::create($data);
@@ -103,11 +113,22 @@ class StraipsnisController extends Controller
         ]);
 
         if ($failas = $request->file('paveiksliukas')) {
-            $katalogas = 'straipsniai/';
-            $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
-            $failas->move($katalogas, $paveiksliukas);
-            $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+            // $katalogas = 'straipsniai/';
+            // $paveiksliukas = date('YmdHis') . "." . $failas->getClientOriginalExtension();
+            // $failas->move($katalogas, $paveiksliukas);
+            // $data['paveiksliukas'] = "$katalogas$paveiksliukas";
+
+            // failų įkelimo perdarymas, kai failai keliami į storage katalogą
+            $data['paveiksliukas'] = Storage::url(
+                $failas->storeAs(
+                    'straipsniai',
+                    date('YmdHis') . "." . $failas->extension(),
+                    'public'
+                )
+            );
         }
+
+        // dd($data);
 
         $straipsnis->update($data);
 

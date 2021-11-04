@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RubrikaController;
 use App\Http\Controllers\StraipsnisController;
+use App\Http\Controllers\CkeditorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,7 @@ Route::resource('rubrika', RubrikaController::class);
 Route::resource('straipsnis', StraipsnisController::class)->parameters([
     'straipsnis' => 'straipsnis'
 ]);
+
+Route::post('editor/image_upload', [CkeditorController::class, 'upload'])->name('editor_upload');
 
 Route::get('/{rubrika:nuoroda}', [RubrikaController::class, 'straipsniai'])->name("rubrika");
